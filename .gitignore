@@ -1,5 +1,6 @@
-# data tidak disimpan di repo (ada di data/raw workspace Workbench)
-data/
+# dataset kasus tim tidak di-commit; hanya manifesnya
+data/*
+!data/MANIFEST.json
 *.pt
 *.pth
 *.ckpt
