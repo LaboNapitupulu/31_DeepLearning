@@ -1,1 +1,9 @@
-{}
+{
+  "metrik": {
+    "placeholder": 0
+  },
+  "seed": 1,
+  "data_hash": "00000000000000000000000000000000",
+  "status": "belum_dievaluasi",
+  "catatan": "Placeholder struktur saja. Seed 1 adalah rencana run; metrik.placeholder bukan hasil model dan data_hash nol bukan sidik dataset asli. Ganti melalui evaluasi setelah rekaman primer tersedia."
+}
