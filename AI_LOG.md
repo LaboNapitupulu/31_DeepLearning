@@ -1,11 +1,12 @@
-# AI_LOG — <Nama tim>
+# AI_LOG — <Nama tim></nama>
 
 Satu baris per pemakaian AI yang bermakna (ChatGPT, Claude, Copilot, Bravais, dan sejenisnya).
 Ringkas dan jujur; transkrip penuh tidak diminta. Yang dinilai bukan "pakai AI atau tidak",
 melainkan "mengerti atau tidak" — isi kolom terakhir dengan apa yang Anda ubah dari keluarannya.
 
-| Tanggal | Siapa (NIM) | Alat | Untuk apa | Apa yang diubah dari keluarannya |
-|---|---|---|---|---|
-| 2026-11-03 | 12345678 | Copilot | kerangka DataLoader | ganti normalisasi, tambah seed worker |
-| 2026-10-31 | 123450078 | Codex | Menyiapkan kode Transformer penghitung orang dan catatan kebutuhan rekaman dari kartu kasus | Belum ditinjau anggota; belum ada pelatihan atau metrics karena data primer belum direkam |
-| 2026-10-31 | 123450078 | Codex | Menyusun draf laporan individu dari template, kartu kasus, dan kode Transformer | Belum ditinjau anggota; bagian hasil ditandai belum tersedia dan tidak memuat angka eksperimen |
+| Tanggal    | Siapa (NIM) | Alat    | Untuk apa                                                                                                                                                                    | Apa yang diubah dari keluarannya                                                                                                                                   |
+| ---------- | ----------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 2026-11-03 | 12345678    | Copilot | kerangka DataLoader                                                                                                                                                          | ganti normalisasi, tambah seed worker                                                                                                                              |
+| 2026-10-31 | 123450078   | Codex   | Menyiapkan kode Transformer penghitung orang dan catatan kebutuhan rekaman dari kartu kasus, menyusun draf laporan individu dari template, kartu kasus, dan kode Transformer | Belum ditinjau anggota; belum ada pelatihan atau metrics karena data primer belum direkam; bagian hasil ditandai belum tersedia dan tidak memuat angka eksperimen |
+| 2026-10-31 | 123450078   | Codex   | Menjalankan baseline dan evaluator starter dengan demo Fashion-MNIST serta menyimpan bukti reproduksi                                                                        | Hasil diberi label demo, protokol kasus tim tetap terpisah; belum ditinjau anggota dan bukan evaluasi Transformer penghitung orang                                 |
+|            |             |         |                                                                                                                                                                              |                                                                                                                                                                    |

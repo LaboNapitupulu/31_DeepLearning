@@ -1,9 +1,17 @@
 {
   "metrik": {
-    "placeholder": 0
+    "val_acc": 0.842333,
+    "val_macro_f1": 0.841142
   },
-  "seed": 1,
-  "data_hash": "00000000000000000000000000000000",
-  "status": "belum_dievaluasi",
-  "catatan": "Placeholder struktur saja. Seed 1 adalah rencana run; metrik.placeholder bukan hasil model dan data_hash nol bukan sidik dataset asli. Ganti melalui evaluasi setelah rekaman primer tersedia."
+  "seed": 2026,
+  "data_hash": "42d7ac7f6bd298d04c19a58de0bb6a97",
+  "perangkat": "cpu laptop",
+  "model": "baseline",
+  "n_val": 6000,
+  "n_test": 0,
+  "durasi_detik": 1.4,
+  "status": "demo_starter_berhasil",
+  "dataset": "Fashion-MNIST",
+  "tujuan": "Bukti alur starter berjalan; bukan evaluasi kasus penghitung orang tim",
+  "bukti_demo": "results/123450078/demo_starter"
 }

@@ -100,3 +100,22 @@ laptop meja dengan prosedur warm-up, jumlah pengulangan, thread, dan batas
 praproses yang sama untuk semua model. Ekspor dan benchmark ONNX belum diimplementasikan.
 Bandingkan dengan Histogram warna + HOG + Random Forest pada split identik;
 pembanding ini juga belum tersedia di repo.
+
+## Uji kesiapan starter dengan data demo
+
+Baseline dan evaluator starter telah berhasil dijalankan memakai Fashion-MNIST
+lokal dengan contoh pemuat dari dosen. Cara mengulangi:
+
+```bash
+python3 models/123450078/demo_starter.py --seed 2026 --publish-demo
+```
+
+Skrip membuat salinan sementara kode starter dan mengaktifkan protokol contoh
+hanya di salinan tersebut. Hasil lengkap, manifest demo, log, dan perintah
+reproduksi disimpan di `results/123450078/demo_starter/`.
+Dengan `--publish-demo`, artefak `results/123450078/metrics.json` dan
+`pred_val.npy` berisi hasil baseline demo; metrics diberi status
+`demo_starter_berhasil` dan dataset `Fashion-MNIST` agar asalnya jelas.
+Publikasi hanya diizinkan jika artefak NIM belum ada atau masih placeholder/demo.
+Metrics dan prediksi demo bukan hasil Transformer penghitung orang; penerimaan
+bukti demo untuk tahap ini mengikuti ketentuan dosen.
