@@ -1,4 +1,4 @@
-# Laporan tim — <Nama tim>
+# Laporan tim — <Pembelajaran Deep>
 
 Satu dokumen bersama, enam bagian. Angka di bagian Hasil ditarik dari `results/*/metrics.json`
 (tabel otomatis: `reports/hasil_komparasi.md` dari `python run_all.py`).
