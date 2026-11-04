@@ -1,0 +1,196 @@
+project:
+  nama: "Estimasi Okupansi Area Meja Berbasis Citra"
+  referensi_starter: "https://github.com/sains-data/capstone-dl-2026-starter"
+
+# MASALAH & TUJUAN
+masalah:
+  deskripsi: >
+    Mengestimasi okupansi area meja berdasarkan citra 224×224 piksel
+    melalui klasifikasi jumlah orang ke dalam empat kelas (0, 1, 2, 3).
+  platform_target: "laptop meja"
+  kendala_utama:
+    - ukuran model sekecil mungkin (diukur dalam KB, format ONNX)
+    - latensi inferensi rendah (diukur dalam ms)
+
+kelas:
+  - id: 0
+    label: "Tidak ada orang (semua keluar bingkai)"
+  - id: 1
+    label: "1 orang (duduk atau berdiri)"
+  - id: 2
+    label: "2 orang"
+  - id: 3
+    label: "3 orang"
+
+# DATA PRIMER
+data_primer:
+  resolusi_kamera: "1280×720"
+  interval_kamera_detik: 0.5
+  ukuran_input_model: "224×224"
+  durasi_per_kondisi_detik: 4
+  jeda_antar_kondisi_detik: 0.5          # usulan revisi: 3 detik (konfirmasi pembimbing)
+  detik_dibuang_awal_kondisi: 1
+
+  partisipan:
+    jumlah_kelompok: 4                  
+    orang_per_kelompok: 3 #(bisa disesuaikan lagi)
+    total_partisipan: 12
+
+  variasi:
+    kelompok:                            # faktor manual, satu kelompok = satu blok
+      - G1
+      - G2
+      - G3
+      - G4
+    orang:                               # faktor isyarat (tampil di layar 4 detik)
+      - 0   # semua keluar bingkai
+      - 1   # duduk
+      - 1   # berdiri (dihitung terpisah saat perekaman)
+      - 2
+      - 3
+    lampu:                               # faktor otomatis (nilai PWM)
+      - 128
+      - 255
+
+  total_kondisi: 160                     ## 4 blok × 40 kondisi per blok
+  kondisi_per_kelompok: 40              ## 5 konfigurasi × 2 taraf lampu × 4 ulangan
+  perkiraan_durasi_rekam_menit: 18      ## ~19 menit jika jeda direvisi menjadi 3 detik
+
+  langkah_meja:
+    - "Siapkan 12 partisipan (4 kelompok × 3 orang) beserta formulir persetujuan"
+    - "Tandai titik tunggu di luar bingkai dan posisi duduk/berdiri di dalam bingkai"
+    - "Koordinator memberi aba-aba setelah layar berganti kondisi"
+    - "Anggota tim non-partisipan berada di luar bingkai selama perekaman"
+
+  verifikasi_hari_rekam:
+    - "Setiap kelompok memiliki tepat 40 kondisi"
+    - "Jumlah orang di citra tengah sesuai label pada beberapa kondisi acak"
+
+data_sekunder:
+  peran:
+    - pralatih (pre-training)
+    - augmentasi
+    - uji tambahan
+  catatan: >
+    Data sekunder hanya pelengkap; tabel komparasi utama, pemilihan jalur,
+    dan uji purwarupa menggunakan data uji dari meja.
+
+# PEMISAHAN & NORMALISASI DATA
+pemisahan_data:
+  strategi: "GroupKFold"
+  kunci_grup:
+    - sesi
+    - blok
+    - partisipan
+  pemisahan_uji: "per kelompok partisipan"
+  normalisasi:
+    sumber: "data latih saja"
+    catatan: "Parameter normalisasi TIDAK dihitung dari data validasi/uji"
+
+# JALUR MODEL (PIPELINE)
+jalur_model:
+  deep_learning:
+    - id: "cnn_scratch"
+      nama: "CNN dari Awal"
+      deskripsi: "Convolutional Neural Network yang dilatih dari bobot acak"
+
+    - id: "transfer_learning"
+      nama: "Transfer Learning"
+      deskripsi: >
+        Model pra-latih (misalnya MobileNetV2 / EfficientNet-Lite)
+        yang di-fine-tune pada data meja
+
+    - id: "transformer"
+      nama: "Vision Transformer (ViT)"
+      deskripsi: "Arsitektur berbasis Transformer untuk visi komputer"
+
+    - id: "autoencoder"
+      nama: "Autoencoder-Based"
+      deskripsi: >
+        Representasi laten dari Autoencoder digunakan sebagai fitur
+        untuk klasifikasi okupansi
+
+  non_deep_learning:
+    - id: "rf_hog_color"
+      nama: "Random Forest + HOG & Histogram Warna"
+      deskripsi: >
+        Ekstraksi fitur manual (Histogram of Oriented Gradients dan
+        histogram warna) diklasifikasikan dengan Random Forest
+      peran: "baseline / pembanding utama"
+      mode_simulasi: true     
+
+# EVALUASI
+evaluasi:
+  metrik_performa:
+    - nama: "Akurasi"
+      satuan: "%"
+    - nama: "Mean Absolute Error (MAE)"
+      satuan: "kelas"
+  pelaporan: "rata-rata ± simpangan baku dari 3 seed"
+
+  metrik_efisiensi:
+    - nama: "Ukuran model ONNX"
+      satuan: "KB"
+    - nama: "Latensi inferensi"
+      satuan: "ms"
+      platform: "laptop meja"
+
+  format_output: "metrics.json"
+
+# SPRINT & JADWAL
+sprint:
+  - id: 1
+    periode: "s.d. 15 Nov 2026"
+    data_tersedia_estimasi: "~10 Nov 2026"
+    sisa_waktu_setelah_data_hari: 5
+    definition_of_done:
+      - "Setiap jalur dilatih pada data primer meja (minimal 1 seed)"
+      - "Pembanding non-DL (Random Forest) berjalan"
+      - "metrics.json valid untuk semua jalur yang dilatih"
+    persiapan_sebelum_slot:
+      - "Pemotong jendela (window slicer) siap"
+      - "PROTOKOL.md lengkap"
+      - "Pembanding non-DL berjalan pada mode simulasi"
+    catatan: "Data sesi diserahkan pengelola pada hari slot rekam"
+
+  - id: 2
+    periode: "16–23 Nov 2026"
+    definition_of_done:
+      - "Pelatihan dengan 3 seed untuk semua jalur"
+      - "Penyetelan hiperparameter"
+      - "Perbandingan lengkap antara semua jalur"
+      - "Laporan evaluasi final"
+
+# CARA MENJALANKAN (RENCANA)
+cara_mencoba:
+  input: "citra tunggal atau tangkapan kamera meja"
+  pra_proses: "ubah ukuran menjadi 224×224 piksel"
+  output: "estimasi jumlah orang (0–3)"
+  format_model_deploy: "ONNX"
+  catatan: >
+    Petunjuk lengkap menjalankan aplikasi dan model terpilih akan ditambahkan
+    setelah implementasi dan pengujian Sprint 2 selesai.
+
+# STRUKTUR DIREKTORI (RENCANA)
+struktur_direktori:
+  - path: "data/"
+    keterangan: "Data mentah dan data yang telah diproses"
+  - path: "src/"
+    keterangan: "Source code utama (preprocessing, model, evaluasi)"
+  - path: "models/"
+    keterangan: "Bobot model tersimpan (.pt, .onnx)"
+  - path: "results/"
+    keterangan: "Output evaluasi (metrics.json, plot, laporan)"
+  - path: "reports/"
+    keterangan: "Laporan sprint dan dokumentasi"
+  - path: "sprint/"
+    keterangan: "Catatan dan artefak per sprint"
+  - path: "PROTOKOL.md"
+    keterangan: "Protokol perekaman data meja"
+  - path: "blueprint.yaml"
+    keterangan: "Dokumen ini – blueprint proyek"
+  - path: "run_all.py"
+    keterangan: "Script pemicu seluruh pipeline"
+  - path: "requirements.txt"
+    keterangan: "Daftar dependensi Python"
+
