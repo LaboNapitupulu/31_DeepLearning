@@ -1,5 +1,5 @@
 {
-  "sumber": "https://… (tautan dataset dari kartu Kasus tim di Workbench)",
-  "berkas": ["data/latih.csv"],
-  "catatan": "Isi pada Sprint 0: versi/tanggal unduh, jumlah baris, dan perubahan (bila ada). Berkas data sendiri tidak di-commit."
+  "sumber": "https://sd.itera.ac.id/workbench/meja-5volt#data-meja",
+  "berkas": ["data/okupansi/dataset.npz", "data/okupansi/provenance.json"],
+  "catatan": "160 citra kurasi RGB 224x224 dengan label okupansi visual dan pembagian per kelompok. Provenance mencatat sidik anotasi, indeks, dan setiap citra sumber yang digunakan."
 }
