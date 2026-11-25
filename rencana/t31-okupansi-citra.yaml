@@ -1,0 +1,33 @@
+# Draf untuk pemeriksaan pembimbing berdasarkan kartu kasus Workbench.
+tim: 31
+judul: Estimasi Okupansi Area Meja Berbasis Citra
+pembimbing: Ade Lailani
+pilar: Citra
+seed: 1031
+ulangan: 4
+durasi_kondisi_detik: 4
+jeda_detik: 0.5
+rekam:
+  audio:
+    aktif: false
+  kamera:
+    aktif: true
+    interval_detik: 0.5
+    lebar: 1280
+    tinggi: 720
+faktor:
+  kelompok:
+    jenis: manual
+    taraf: [G1, G2, G3, G4]
+    instruksi: Kelompok partisipan {taraf} siap
+  orang:
+    jenis: isyarat
+    taraf: [0 orang, 1 orang duduk, 1 orang berdiri, 2 orang, 3 orang]
+    instruksi: 'Posisi: {taraf}'
+  lampu: [0, 255]
+metode:
+  jenis_tugas: Klasifikasi jumlah 0–3
+  masukan_model: Citra RGB 224×224
+  metrik_utama: Akurasi, MAE
+  jalur: [CNN, TL, Transformer, RNN]
+  pembanding_non_dl: Histogram warna + HOG + Random Forest
