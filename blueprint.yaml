@@ -32,7 +32,7 @@ data_primer:
   detik_dibuang_awal_kondisi: 1
 
   partisipan:
-    jumlah_kelompok: 4                  
+    jumlah_kelompok: 4
     orang_per_kelompok: 3 #(bisa disesuaikan lagi)
     total_partisipan: 12
 
@@ -48,13 +48,13 @@ data_primer:
       - 1   # berdiri (dihitung terpisah saat perekaman)
       - 2
       - 3
-    lampu:                               # faktor otomatis (nilai PWM)
-      - 128
+    lampu:                               # faktor otomatis (relay lampu)
+      - 0
       - 255
 
   total_kondisi: 160                     ## 4 blok × 40 kondisi per blok
   kondisi_per_kelompok: 40              ## 5 konfigurasi × 2 taraf lampu × 4 ulangan
-  perkiraan_durasi_rekam_menit: 18      ## ~19 menit jika jeda direvisi menjadi 3 detik
+  perkiraan_durasi_rekam_menit: 18      # termasuk perkiraan pergantian kelompok
 
   langkah_meja:
     - "Siapkan 12 partisipan (4 kelompok × 3 orang) beserta formulir persetujuan"
@@ -77,11 +77,11 @@ data_sekunder:
 
 # PEMISAHAN & NORMALISASI DATA
 pemisahan_data:
-  strategi: "GroupKFold"
-  kunci_grup:
-    - sesi
-    - blok
-    - partisipan
+  strategi: "Split beku per kelompok partisipan, seed 2026"
+  kelompok_split:
+    latih: [G2, G3]
+    validasi: [G1]
+    uji: [G4]
   pemisahan_uji: "per kelompok partisipan"
   normalisasi:
     sumber: "data latih saja"
@@ -104,11 +104,10 @@ jalur_model:
       nama: "Vision Transformer (ViT)"
       deskripsi: "Arsitektur berbasis Transformer untuk visi komputer"
 
-    - id: "autoencoder"
-      nama: "Autoencoder-Based"
+    - id: "rnn"
+      nama: "GRU atas baris citra"
       deskripsi: >
-        Representasi laten dari Autoencoder digunakan sebagai fitur
-        untuk klasifikasi okupansi
+        Urutan baris citra diproses oleh GRU sesuai penugasan Ridwan pada Papan Tim.
 
   non_deep_learning:
     - id: "rf_hog_color"
@@ -117,7 +116,7 @@ jalur_model:
         Ekstraksi fitur manual (Histogram of Oriented Gradients dan
         histogram warna) diklasifikasikan dengan Random Forest
       peran: "baseline / pembanding utama"
-      mode_simulasi: true     
+      mode_simulasi: true
 
 # EVALUASI
 evaluasi:
@@ -140,9 +139,7 @@ evaluasi:
 # SPRINT & JADWAL
 sprint:
   - id: 1
-    periode: "s.d. 15 Nov 2026"
-    data_tersedia_estimasi: "~10 Nov 2026"
-    sisa_waktu_setelah_data_hari: 5
+    periode: "2–30 Nov 2026 (Workbench)"
     definition_of_done:
       - "Setiap jalur dilatih pada data primer meja (minimal 1 seed)"
       - "Pembanding non-DL (Random Forest) berjalan"
@@ -154,7 +151,7 @@ sprint:
     catatan: "Data sesi diserahkan pengelola pada hari slot rekam"
 
   - id: 2
-    periode: "16–23 Nov 2026"
+    periode: "1–12 Des 2026 (Workbench)"
     definition_of_done:
       - "Pelatihan dengan 3 seed untuk semua jalur"
       - "Penyetelan hiperparameter"
@@ -185,7 +182,7 @@ struktur_direktori:
     keterangan: "Laporan sprint dan dokumentasi"
   - path: "sprint/"
     keterangan: "Catatan dan artefak per sprint"
-  - path: "PROTOKOL.md"
+  - path: "src/protokol/PROTOKOL.md"
     keterangan: "Protokol perekaman data meja"
   - path: "blueprint.yaml"
     keterangan: "Dokumen ini – blueprint proyek"
@@ -193,4 +190,3 @@ struktur_direktori:
     keterangan: "Script pemicu seluruh pipeline"
   - path: "requirements.txt"
     keterangan: "Daftar dependensi Python"
-
