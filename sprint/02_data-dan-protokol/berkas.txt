@@ -1,0 +1,12 @@
+.gitignore
+requirements.txt
+data/MANIFEST.json
+data/CATATAN-SESI.md
+src/protokol/PROTOKOL.md
+src/protokol/data.py
+src/protokol/siapkan.py
+src/protokol/simulasi.py
+src/eksperimen.py
+src/latih_citra.py
+sprint/02_data-dan-protokol/README.md
+sprint/02_data-dan-protokol/berkas.txt
