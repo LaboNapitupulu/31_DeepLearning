@@ -13,9 +13,9 @@
     "weight_decay": 0.01,
     "dropout": 0.2,
     "threads": 4,
-    "perangkat": "CPU laptop Labo - Windows",
+    "perangkat": "cpu laptop",
     "final": false,
-    "bobot": "data/mobilenet_v2-7ebf99e0.pth",
+    "bobot": "C:\\Users\\V I C T U S\\workbench-workspace\\capstone-deep-learning\\data\\mobilenet_v2-7ebf99e0.pth",
     "bobot_acak_simulasi": false,
     "fine_tune": false
   },
