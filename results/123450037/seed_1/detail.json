@@ -13,20 +13,20 @@
     "weight_decay": 0.01,
     "dropout": 0.2,
     "threads": 4,
-    "perangkat": "cpu laptop",
+    "perangkat": "CPU laptop Labo - Windows",
     "final": false,
-    "bobot": "/home/givaro/workbench-workspace/capstone-deep-learning/data/mobilenet_v2-7ebf99e0.pth",
+    "bobot": "data/mobilenet_v2-7ebf99e0.pth",
     "bobot_acak_simulasi": false,
     "fine_tune": false
   },
   "jumlah_parameter": 2228996,
   "parameter_dilatih": 5124,
   "loss_latih": [
-    1.2889795541763305,
+    1.288979458808899,
     1.0645496129989624,
-    0.911760687828064,
-    0.8013963103294373,
-    0.7002500176429749
+    0.9117606043815613,
+    0.8013962626457214,
+    0.7002499818801879
   ],
   "normalisasi_mean": [
     0.5825158953666687,
