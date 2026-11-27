@@ -1,0 +1,14 @@
+anggota/Labo-Napitupulu/README.md
+models/123450037/catatan.md
+models/123450037/run.py
+models/123450037/uji_simulasi.py
+reports/individu/123450037.md
+results/123450037/detail.json
+results/123450037/metrics.json
+results/123450037/pred_val.npy
+results/123450037/seed_1/detail.json
+results/123450037/seed_1/metrics.json
+results/123450037/seed_1/pred_val.npy
+sprint/05_transfer-learning/README.md
+sprint/05_transfer-learning/berkas.txt
+sprint/05_transfer-learning/hasil-simulasi.json
