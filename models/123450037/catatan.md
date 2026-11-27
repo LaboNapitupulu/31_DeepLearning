@@ -1,34 +1,23 @@
-# Catatan model Labo Napitupulu (123450037) — Transfer Learning (tl)
+# Transfer learning MobileNetV2 · 123450037
 
-## Alasan optimizer
-Menggunakan **AdamW** dengan learning rate awal $1 \times 10^{-3}$ dan weight decay $1 \times 10^{-2}$.
-Alasannya:
-1. AdamW memisahkan regularisasi $L_2$ (weight decay) dari kalkulasi gradien adaptif, sehingga memperbarui bobot secara lebih stabil tanpa merusak fitur representasi umum yang sudah dipelajari oleh model *backbone* ImageNet.
-2. Kecepatan konvergensinya lebih cepat dibandingkan SGD biasa pada dataset skala kecil-menengah, sangat krusial untuk memenuhi batas anggaran pelatihan $\le 20$ menit pada CPU laptop.
+Ekstraktor MobileNetV2 ImageNet dibekukan pada konfigurasi awal dan classifier
+empat kelas dilatih dengan AdamW (LR 0,001), dropout 0,2, dan weight decay 0,01.
+Dengan pembekuan, jumlah parameter yang diperbarui lebih kecil sehingga run awal
+lebih ringan. Opsi `--fine-tune` membuka ekstraktor untuk percobaan berikutnya.
+Rerata dan simpangan baku kanal dihitung dari citra latih sesuai protokol tim.
 
-## Regularisasi
-1. **Dropout (0.2):** Diterapkan pada classifier head sebelum lapisan proyeksi akhir untuk mematikan neuron secara acak dan mencegah model terlalu bergantung pada fitur spasial tertentu dari data meja uji.
-2. **Weight Decay ($10^{-2}$):** Mencegah bobot lapisan klasifikasi tumbuh terlalu besar, mengurangi risiko *overfitting* terhadap variasi pencahayaan tertentu (kondisi 128 vs 255).
+Untuk tugas #13, jalankan `python models/123450037/run.py --seed 1 --simulasi
+--bobot data/mobilenet_v2-7ebf99e0.pth`. Helper menyalin kode ke direktori baru di
+`results/simulasi/123450037/`, membangkitkan data sintetis tim, lalu melatih dan
+menilai MobileNetV2 memakai pemuat dan evaluator yang sama. Statistik normalisasi
+dihitung dari split latih simulasi. Data primer dan artefak hasil primer tidak
+ditimpa; sidik berkasnya diperiksa sebelum dan sesudah eksekusi.
 
-## Pencarian hyperparameter (tabel)
-*(Akan dilengkapi saat data primer meja uji sudah direkam pada Sprint 1)*
+Bobot ImageNet digunakan pada uji lokal. `--bobot-acak-simulasi` hanya tersedia
+untuk uji mekanisme tanpa pralatih dan tidak boleh dipakai pada data primer.
+Simulasi tidak menerima `--final`. Bukti tugas #13, perintah reproduksi, dan
+batas interpretasi hasil ada di `sprint/05_transfer-learning/README.md`.
 
-| Eksperimen | Backbone | LR | Batch | Optimizer | Val Acc | Val MAE | Catatan |
-|---|---|---|---|---|---|---|---|
-| E0 (Baseline) | MobileNetV2 | 1e-3 | 16 | AdamW | — | — | Konfigurasi awal |
-| E1 | MobileNetV2 | 5e-4 | 16 | AdamW | — | — | Uji stabilitas LR lebih kecil |
-| E2 | ResNet18 | 1e-3 | 16 | AdamW | — | — | Pembanding backbone CNN |
-
-## Ablation (>= 2)
-1. **Ablation 1 (Frozen Backbone vs Full Fine-Tuning):** Membandingkan apakah membekukan (*freeze*) bobot ekstraktor fitur menghasilkan generalisasi yang lebih baik dibanding melatih seluruh lapisan secara langsung pada data meja uji.
-2. **Ablation 2 (Dampak Regularisasi Dropout):** Menguji akurasi dan MAE model dengan Dropout 0.2 vs tanpa Dropout (0.0).
-
-## Hasil 3 seed konfigurasi akhir
-*(Akan dieksekusi dengan seed 1, 2, dan 3 pada konfigurasi terbaik)*
-
-| Konfigurasi | Seed | Val Acc | Val MAE | Durasi (s) | Ukuran ONNX (KB) | Latensi (ms) |
-|---|---|---|---|---|---|---|
-| Final | 1 | — | — | — | — | — |
-| Final | 2 | — | — | — | — | — |
-| Final | 3 | — | — | — | — | — |
-| **Rerata ± Std** | — | — | — | — | — | — |
+Kandidat Sprint 2 adalah menguji pembekuan ekstraktor dan dropout. Run primer
+seed 1 yang diterima dari tim mencatat akurasi 65,00% dan MAE 0,4250 orang di
+validasi; uji simulasi lokal tidak mengganti hasil tersebut.

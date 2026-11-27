@@ -1,0 +1,71 @@
+{
+  "tugas": 13,
+  "status": "berhasil",
+  "jenis_data": "simulasi",
+  "data_hash": "99923c1700b363ac7b2bc1f8c6e21f67",
+  "seed": 1,
+  "bobot_awal": "ImageNet",
+  "sha256_bobot": "7ebf99e03e254b273379b23edca7ec0da9f48273b23a332b93c1c99d49e86e8f",
+  "lingkungan": {
+    "python": "3.12.14",
+    "torch": "2.15.0+cpu",
+    "torchvision": "0.29.2+cpu",
+    "numpy": "2.5.4",
+    "Pillow": "13.0.0"
+  },
+  "ukuran_split": {
+    "train": 160,
+    "val": 80,
+    "test": 80
+  },
+  "kelompok_split": {
+    "train": [
+      "G2",
+      "G3"
+    ],
+    "val": [
+      "G1"
+    ],
+    "test": [
+      "G4"
+    ]
+  },
+  "metrik_validasi": {
+    "val_acc": 0.975,
+    "val_macro_f1": 0.968627,
+    "val_mae": 0.025
+  },
+  "durasi_detik": 19.694,
+  "data_dan_artefak_primer_tetap_sama": true,
+  "data_uji_dievaluasi": false,
+  "folder_hasil": "results/simulasi/123450037/seed_1-93pbs740",
+  "perintah_model": [
+    "models/123450037/run.py",
+    "--seed",
+    "1",
+    "--epochs",
+    "5",
+    "--batch-size",
+    "16",
+    "--lr",
+    "0.001",
+    "--weight-decay",
+    "0.01",
+    "--dropout",
+    "0.2",
+    "--threads",
+    "4",
+    "--perangkat",
+    "cpu laptop",
+    "--bobot",
+    "C:\\Users\\V I C T U S\\workbench-workspace\\capstone-deep-learning\\data\\mobilenet_v2-7ebf99e0.pth"
+  ],
+  "pemeriksaan_tambahan": {
+    "bentuk_logits": [
+      2,
+      4
+    ],
+    "prediksi_checkpoint_cocok": true,
+    "simulasi_final_ditolak": true
+  }
+}
