@@ -1,0 +1,13 @@
+{
+  "status": "demo_starter_berhasil",
+  "dataset": "Fashion-MNIST",
+  "tujuan": "Menguji baseline, split, manifest, dan evaluator starter dosen",
+  "batasan": "Bukan pelatihan Transformer atau evaluasi kasus penghitung orang tim",
+  "nim": "123450078",
+  "seed": 2026,
+  "threads": 4,
+  "perintah_reproduksi": "python3 models/123450078/demo_starter.py --seed 2026 --threads 4 --publish-demo",
+  "data_dir": "/home/givaro/workbench-workspace/deep-learning/data/raw/FashionMNIST/raw",
+  "durasi_total_detik": 1.917,
+  "data_uji_dievaluasi": false
+}

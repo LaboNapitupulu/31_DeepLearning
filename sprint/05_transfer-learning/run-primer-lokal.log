@@ -1,0 +1,7 @@
+tl epoch 1/5: loss_latih=1.288979
+tl epoch 2/5: loss_latih=1.064550
+tl epoch 3/5: loss_latih=0.911761
+tl epoch 4/5: loss_latih=0.801396
+tl epoch 5/5: loss_latih=0.700250
+{"val_acc": 0.65, "val_macro_f1": 0.431818} → results\123450037\seed_1\metrics.json
+123450037, seed 1: MAE {'val_mae': 0.425}

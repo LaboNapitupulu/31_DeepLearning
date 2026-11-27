@@ -1,0 +1,10 @@
+{
+  "sumber": "Fashion-MNIST lokal, contoh dataset pada starter dosen",
+  "berkas": [
+    "data/FashionMNIST/raw/train-images-idx3-ubyte",
+    "data/FashionMNIST/raw/train-labels-idx1-ubyte",
+    "data/FashionMNIST/raw/t10k-images-idx3-ubyte",
+    "data/FashionMNIST/raw/t10k-labels-idx1-ubyte"
+  ],
+  "catatan": "Demo baseline starter; bukan dataset penghitung orang di meja."
+}

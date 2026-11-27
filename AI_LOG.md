@@ -1,9 +1,14 @@
-# AI_LOG — <Nama tim>
+# AI_LOG — <Nama tim></nama>
 
 Satu baris per pemakaian AI yang bermakna (ChatGPT, Claude, Copilot, Bravais, dan sejenisnya).
 Ringkas dan jujur; transkrip penuh tidak diminta. Yang dinilai bukan "pakai AI atau tidak",
 melainkan "mengerti atau tidak" — isi kolom terakhir dengan apa yang Anda ubah dari keluarannya.
 
-| Tanggal | Siapa (NIM) | Alat | Untuk apa | Apa yang diubah dari keluarannya |
-|---|---|---|---|---|
-| 2026-11-03 | 12345678 | Copilot | kerangka DataLoader | ganti normalisasi, tambah seed worker |
+| Tanggal    | Siapa (NIM) | Alat    | Untuk apa                                                                                                                                                                    | Apa yang diubah dari keluarannya                                                                                                                                   |
+| ---------- | ----------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 2026-11-03 | 12345678    | Copilot | kerangka DataLoader                                                                                                                                                          | ganti normalisasi, tambah seed worker                                                                                                                              |
+| 2026-10-31 | 123450078   | Codex   | Menyiapkan kode Transformer penghitung orang dan catatan kebutuhan rekaman dari kartu kasus, menyusun draf laporan individu dari template, kartu kasus, dan kode Transformer | Belum ditinjau anggota; belum ada pelatihan atau metrics karena data primer belum direkam; bagian hasil ditandai belum tersedia dan tidak memuat angka eksperimen |
+| 2026-10-31 | 123450078   | Codex   | Menjalankan baseline dan evaluator starter dengan demo Fashion-MNIST serta menyimpan bukti reproduksi                                                                        | Hasil diberi label demo, protokol kasus tim tetap terpisah; belum ditinjau anggota dan bukan evaluasi Transformer penghitung orang                                 |
+| 2026-10-31 | 123450037   | Antigravity | Kerangka model Transfer Learning (MobileNetV2)                                                                                                | Menyesuaikan head classifier ke 4 kelas (0–3 orang), menambah normalisasi citra 224x224, dan dropout                                              |
+| 2026-11-27 | 123450037 | Codex | Menyiapkan lingkungan CPU, opsi simulasi TL terpisah, dan bukti uji tugas #13 dengan bobot ImageNet | Mempertahankan kode pemuat/evaluator bersama, memeriksa metrik dan checkpoint, memperbaiki encoding terminal Windows; hasil sintetis dipisah dari artefak primer dan data uji tidak dievaluasi |
+| 2026-11-27 | 123450037 | Codex | Melatih ulang TL seed 1 pada data primer untuk tugas #14 dan menyiapkan bukti serta draf Log Sprint/PR | Mengarsipkan hasil tim, memeriksa hash dan metrik, membandingkan RF, memperbaiki UTF-8 Windows; prediksi direproduksi identik dan data uji tidak dievaluasi |

@@ -1,0 +1,11 @@
+anggota/Givaro-Ananta/README.md
+models/123450078/catatan.md
+reports/individu/123450078.md
+results/123450078/detail.json
+results/123450078/metrics.json
+results/123450078/pred_val.npy
+results/123450078/seed_1/detail.json
+results/123450078/seed_1/metrics.json
+results/123450078/seed_1/pred_val.npy
+sprint/07_transformer/README.md
+sprint/07_transformer/berkas.txt
