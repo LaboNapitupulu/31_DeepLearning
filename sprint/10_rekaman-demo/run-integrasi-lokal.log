@@ -1,0 +1,45 @@
+$ C:\Users\V I C T U S\workbench-workspace\capstone-deep-learning\.venv\Scripts\python.exe -m src.common.baseline --seed 1
+{"val_acc": 0.25, "val_macro_f1": 0.1} → results\baseline\metrics.json
+$ C:\Users\V I C T U S\workbench-workspace\capstone-deep-learning\.venv\Scripts\python.exe -m src.pembanding.run --seed 1
+{"val_acc": 0.6, "val_macro_f1": 0.541259} → results\baseline\seed_1\metrics.json
+baseline, seed 1: MAE {'val_mae': 0.6}
+$ C:\Users\V I C T U S\workbench-workspace\capstone-deep-learning\.venv\Scripts\python.exe models/123450037/run.py --seed 1 --bobot C:\Users\V I C T U S\workbench-workspace\capstone-deep-learning\data\mobilenet_v2-7ebf99e0.pth
+tl epoch 1/5: loss_latih=1.288979
+tl epoch 2/5: loss_latih=1.064550
+tl epoch 3/5: loss_latih=0.911761
+tl epoch 4/5: loss_latih=0.801396
+tl epoch 5/5: loss_latih=0.700250
+{"val_acc": 0.65, "val_macro_f1": 0.431818} → results\123450037\seed_1\metrics.json
+123450037, seed 1: MAE {'val_mae': 0.425}
+$ C:\Users\V I C T U S\workbench-workspace\capstone-deep-learning\.venv\Scripts\python.exe models/123450040/run.py --seed 1
+cnn epoch 1/6: loss_latih=1.365172
+cnn epoch 2/6: loss_latih=1.141869
+cnn epoch 3/6: loss_latih=1.028512
+cnn epoch 4/6: loss_latih=0.932931
+cnn epoch 5/6: loss_latih=0.845132
+cnn epoch 6/6: loss_latih=0.779613
+{"val_acc": 0.475, "val_macro_f1": 0.37957} → results\123450040\seed_1\metrics.json
+123450040, seed 1: MAE {'val_mae': 0.725}
+$ C:\Users\V I C T U S\workbench-workspace\capstone-deep-learning\.venv\Scripts\python.exe models/123450078/run.py --seed 1
+trf epoch 1/10: loss_latih=1.499150
+trf epoch 2/10: loss_latih=1.265703
+trf epoch 3/10: loss_latih=1.234757
+trf epoch 4/10: loss_latih=1.195810
+trf epoch 5/10: loss_latih=1.184773
+trf epoch 6/10: loss_latih=1.137925
+trf epoch 7/10: loss_latih=1.111266
+trf epoch 8/10: loss_latih=1.085650
+trf epoch 9/10: loss_latih=1.055909
+trf epoch 10/10: loss_latih=1.017230
+{"val_acc": 0.425, "val_macro_f1": 0.310816} → results\123450078\seed_1\metrics.json
+123450078, seed 1: MAE {'val_mae': 0.725}
+$ C:\Users\V I C T U S\workbench-workspace\capstone-deep-learning\.venv\Scripts\python.exe models/123450091/run.py --seed 1
+rnn epoch 1/6: loss_latih=1.303308
+rnn epoch 2/6: loss_latih=1.129741
+rnn epoch 3/6: loss_latih=1.000605
+rnn epoch 4/6: loss_latih=0.888160
+rnn epoch 5/6: loss_latih=0.783256
+rnn epoch 6/6: loss_latih=0.703804
+{"val_acc": 0.575, "val_macro_f1": 0.415717} → results\123450091\seed_1\metrics.json
+123450091, seed 1: MAE {'val_mae': 0.625}
+Tabel komparasi: C:\Users\V I C T U S\workbench-workspace\capstone-deep-learning\data\validasi_demo\seed_1-7sbd5iev\reports\hasil_komparasi.md

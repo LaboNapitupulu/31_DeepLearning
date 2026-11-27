@@ -27,7 +27,8 @@ ANGGOTA = {
 def jalankan(opsi, cwd=AKAR):
     perintah = [sys.executable, *opsi]
     print("$", " ".join(perintah), flush=True)
-    env = {**os.environ, "OPENBLAS_NUM_THREADS": "2", "OMP_NUM_THREADS": "4"}
+    env = {**os.environ, "OPENBLAS_NUM_THREADS": "2", "OMP_NUM_THREADS": "4",
+           "PYTHONIOENCODING": "utf-8"}
     subprocess.run(perintah, check=True, cwd=cwd, env=env)
 
 
@@ -172,4 +173,7 @@ def main():
 
 
 if __name__ == "__main__":
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="backslashreplace")
     main()

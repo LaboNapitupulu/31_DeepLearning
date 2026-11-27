@@ -9,5 +9,5 @@
   "model": "rf_hog_color",
   "n_val": 40,
   "n_test": 0,
-  "durasi_detik": 0.515
+  "durasi_detik": 1.46
 }

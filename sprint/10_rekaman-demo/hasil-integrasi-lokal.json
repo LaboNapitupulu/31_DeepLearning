@@ -1,0 +1,144 @@
+{
+  "tanggal": "2026-11-27",
+  "status": "runner_lengkap_berhasil",
+  "seed": 1,
+  "data_hash": "ae9811140ba30965a9d7c5e94fabd85d",
+  "folder_run_terpisah": "data/validasi_demo/seed_1-7sbd5iev",
+  "lingkungan": {
+    "python": "3.12.14",
+    "sistem": "Windows",
+    "numpy": "2.5.4",
+    "Pillow": "13.0.0",
+    "torch": "2.15.0+cpu",
+    "torchvision": "0.29.2+cpu",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1"
+  },
+  "hasil": [
+    {
+      "komponen": "Starter",
+      "model": "baseline",
+      "seed": 1,
+      "data_hash": "ae9811140ba30965a9d7c5e94fabd85d",
+      "metrik_validasi_lokal": {
+        "val_acc": 0.25,
+        "val_macro_f1": 0.1,
+        "val_mae": 1.225
+      },
+      "durasi_detik_lokal": 0.4,
+      "prediksi_identik_artefak_repo": true,
+      "jumlah_prediksi_berbeda": 0,
+      "metrik_validasi_artefak_repo": {
+        "val_acc": 0.25,
+        "val_macro_f1": 0.1,
+        "val_mae": 1.225
+      }
+    },
+    {
+      "komponen": "Pembanding",
+      "model": "rf_hog_color",
+      "seed": 1,
+      "data_hash": "ae9811140ba30965a9d7c5e94fabd85d",
+      "metrik_validasi_lokal": {
+        "val_acc": 0.6,
+        "val_macro_f1": 0.541259,
+        "val_mae": 0.6
+      },
+      "durasi_detik_lokal": 1.361,
+      "prediksi_identik_artefak_repo": true,
+      "jumlah_prediksi_berbeda": 0,
+      "metrik_validasi_artefak_repo": {
+        "val_acc": 0.6,
+        "val_macro_f1": 0.541259,
+        "val_mae": 0.6
+      }
+    },
+    {
+      "komponen": "123450037",
+      "model": "tl",
+      "seed": 1,
+      "data_hash": "ae9811140ba30965a9d7c5e94fabd85d",
+      "metrik_validasi_lokal": {
+        "val_acc": 0.65,
+        "val_macro_f1": 0.431818,
+        "val_mae": 0.425
+      },
+      "durasi_detik_lokal": 11.009,
+      "prediksi_identik_artefak_repo": true,
+      "jumlah_prediksi_berbeda": 0,
+      "metrik_validasi_artefak_repo": {
+        "val_acc": 0.65,
+        "val_macro_f1": 0.431818,
+        "val_mae": 0.425
+      }
+    },
+    {
+      "komponen": "123450040",
+      "model": "cnn",
+      "seed": 1,
+      "data_hash": "ae9811140ba30965a9d7c5e94fabd85d",
+      "metrik_validasi_lokal": {
+        "val_acc": 0.475,
+        "val_macro_f1": 0.37957,
+        "val_mae": 0.725
+      },
+      "durasi_detik_lokal": 9.29,
+      "prediksi_identik_artefak_repo": false,
+      "jumlah_prediksi_berbeda": 1,
+      "metrik_validasi_artefak_repo": {
+        "val_acc": 0.475,
+        "val_macro_f1": 0.390681,
+        "val_mae": 0.7
+      }
+    },
+    {
+      "komponen": "123450078",
+      "model": "trf",
+      "seed": 1,
+      "data_hash": "ae9811140ba30965a9d7c5e94fabd85d",
+      "metrik_validasi_lokal": {
+        "val_acc": 0.425,
+        "val_macro_f1": 0.310816,
+        "val_mae": 0.725
+      },
+      "durasi_detik_lokal": 8.657,
+      "prediksi_identik_artefak_repo": true,
+      "jumlah_prediksi_berbeda": 0,
+      "metrik_validasi_artefak_repo": {
+        "val_acc": 0.425,
+        "val_macro_f1": 0.310816,
+        "val_mae": 0.725
+      }
+    },
+    {
+      "komponen": "123450091",
+      "model": "rnn",
+      "seed": 1,
+      "data_hash": "ae9811140ba30965a9d7c5e94fabd85d",
+      "metrik_validasi_lokal": {
+        "val_acc": 0.575,
+        "val_macro_f1": 0.415717,
+        "val_mae": 0.625
+      },
+      "durasi_detik_lokal": 6.725,
+      "prediksi_identik_artefak_repo": true,
+      "jumlah_prediksi_berbeda": 0,
+      "metrik_validasi_artefak_repo": {
+        "val_acc": 0.575,
+        "val_macro_f1": 0.415717,
+        "val_mae": 0.625
+      }
+    }
+  ],
+  "data_dan_artefak_primer_tidak_berubah": true,
+  "evaluasi_model_pada_data_uji": false,
+  "tabel_utama": "reports/hasil_komparasi.md",
+  "sumber_tabel_utama": "Artefak primer tersimpan; durasi TL mengikuti run tugas #14 sebesar 11.758 detik.",
+  "tabel_run_lokal": "sprint/10_rekaman-demo/hasil-komparasi-lokal.md",
+  "catatan": [
+    "CNN memiliki 1 prediksi berbeda dari artefak repo; akurasi sama, macro-F1 dan MAE berbeda.",
+    "Satu seed tidak menjamin hasil bit-identik antarversi paket dan perangkat.",
+    "Baseline starter memakai batch 128 pada 80 citra latih sehingga tidak melakukan pembaruan bobot; pembanding non-DL utama adalah Random Forest."
+  ],
+  "video_baru_direkam": false
+}
