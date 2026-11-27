@@ -1,6 +1,7 @@
 """MobileNetV2 pralatih untuk empat kelas okupansi."""
 
 from pathlib import Path
+import os
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
@@ -47,6 +48,10 @@ def buat_model(mean, std, args):
 
 
 if __name__ == "__main__":
+    os.environ["PYTHONIOENCODING"] = "utf-8"
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="backslashreplace")
     parser = argumen(epochs=5, lr=1e-3, dropout=0.2)
     parser.add_argument("--simulasi", action="store_true",
                         help="Uji pada data sintetis di folder hasil terpisah.")

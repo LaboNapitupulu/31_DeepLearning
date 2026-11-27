@@ -1,0 +1,8 @@
+{
+  "data\\MANIFEST.json": "13a9473f3d0173418054297fa19820e51557a5e895a6044f90475ae988aad99d",
+  "data\\okupansi\\dataset.npz": "6209944c93decf2b91caa8cf0f7797852cd3231892ff8d48eb68e2ff88ce7351",
+  "data\\okupansi\\provenance.json": "57beb8d2e95ac9df3a0442230de7581329cdb832e3ada808af8b8f22ade7907c",
+  "results\\baseline\\metrics.json": "fb231adf03acc180777638e6cd49f1b8f77f92338bf26b228e4464da48a2c319",
+  "results\\baseline\\detail.json": "efe0d88e76692e4f763aaff3f690fb26ea6ba79fee0784a3ec219856e2ada599",
+  "results\\baseline\\pred_val.npy": "0c7be5947525645113c96f2e0aeccb67a046b4fa463fe7e1d551ebf8fbd59c23"
+}

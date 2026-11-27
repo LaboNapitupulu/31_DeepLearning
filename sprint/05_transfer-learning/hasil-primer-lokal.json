@@ -1,0 +1,120 @@
+{
+  "tugas": 14,
+  "status_teknis": "pelatihan_primer_dan_verifikasi_berhasil",
+  "tanggal": "2026-11-27",
+  "nim": "123450037",
+  "model": "tl",
+  "arsitektur": "MobileNetV2 ImageNet; backbone beku",
+  "seed": 1,
+  "data_hash": "ae9811140ba30965a9d7c5e94fabd85d",
+  "jenis_data": "primer",
+  "ukuran_split": {
+    "train": 80,
+    "val": 40,
+    "test": 40
+  },
+  "kelompok_split": {
+    "train": [
+      "G2",
+      "G3"
+    ],
+    "val": [
+      "G1"
+    ],
+    "test": [
+      "G4"
+    ]
+  },
+  "metrik_validasi": {
+    "val_acc": 0.65,
+    "val_macro_f1": 0.431818,
+    "val_mae": 0.425
+  },
+  "durasi_detik": 11.758,
+  "jumlah_parameter": 2228996,
+  "parameter_dilatih": 5124,
+  "konfigurasi": {
+    "seed": 1,
+    "epochs": 5,
+    "batch_size": 16,
+    "lr": 0.001,
+    "weight_decay": 0.01,
+    "dropout": 0.2,
+    "threads": 4,
+    "perangkat": "CPU laptop Labo - Windows",
+    "final": false,
+    "bobot": "data/mobilenet_v2-7ebf99e0.pth",
+    "bobot_acak_simulasi": false,
+    "fine_tune": false
+  },
+  "lingkungan": {
+    "python": "3.12.14",
+    "sistem": "Windows",
+    "torch": "2.15.0+cpu",
+    "torchvision": "0.29.2+cpu",
+    "numpy": "2.5.4",
+    "Pillow": "13.0.0"
+  },
+  "sha256_bobot": "7ebf99e03e254b273379b23edca7ec0da9f48273b23a332b93c1c99d49e86e8f",
+  "confusion_matrix_baris_label_kolom_prediksi": [
+    [
+      10,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      16,
+      0,
+      0
+    ],
+    [
+      0,
+      9,
+      0,
+      0
+    ],
+    [
+      0,
+      3,
+      2,
+      0
+    ]
+  ],
+  "recall_per_kelas": {
+    "0": 1.0,
+    "1": 1.0,
+    "2": 0.0,
+    "3": 0.0
+  },
+  "pembanding_non_dl": {
+    "model": "rf_hog_color",
+    "seed": 1,
+    "data_hash": "ae9811140ba30965a9d7c5e94fabd85d",
+    "val_acc": 0.6,
+    "val_macro_f1": 0.5412587412587413,
+    "val_mae": 0.6
+  },
+  "selisih_terhadap_pembanding": {
+    "akurasi_poin_persen": 5.000000000000004,
+    "mae_orang": -0.175
+  },
+  "verifikasi": {
+    "prediksi_sama_dengan_arsip_tim": true,
+    "data_dan_pembanding_tidak_berubah": true,
+    "checkpoint_cocok_dengan_prediksi": true,
+    "bentuk_logits": [
+      2,
+      4
+    ],
+    "n_test_dievaluasi": 0
+  },
+  "batasan": [
+    "Satu seed dan 40 citra validasi; belum hasil akhir tiga seed.",
+    "Kelas 2 dan 3 belum berhasil diklasifikasikan dengan benar.",
+    "Keanggotaan partisipan 18 foto pelengkap di luar blok masih perlu dikonfirmasi tim."
+  ],
+  "log": "sprint/05_transfer-learning/run-primer-lokal.log",
+  "perintah_reproduksi": ".\\.venv\\Scripts\\python.exe -u -B models/123450037/run.py --seed 1 --epochs 5 --batch-size 16 --lr 0.001 --weight-decay 0.01 --dropout 0.2 --threads 4 --perangkat \"CPU laptop Labo - Windows\" --bobot data/mobilenet_v2-7ebf99e0.pth"
+}
