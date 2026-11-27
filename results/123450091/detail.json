@@ -1,0 +1,39 @@
+{
+  "seed": 1,
+  "data_hash": "ae9811140ba30965a9d7c5e94fabd85d",
+  "jenis_data": "primer",
+  "metrik_tambahan": {
+    "val_mae": 0.625
+  },
+  "konfigurasi": {
+    "seed": 1,
+    "epochs": 6,
+    "batch_size": 16,
+    "lr": 0.001,
+    "weight_decay": 0.01,
+    "dropout": 0.2,
+    "threads": 4,
+    "perangkat": "cpu laptop",
+    "final": false
+  },
+  "jumlah_parameter": 36164,
+  "parameter_dilatih": 36164,
+  "loss_latih": [
+    1.3033079624176025,
+    1.1297414541244506,
+    1.0006053447723389,
+    0.8881598591804505,
+    0.7832561254501342,
+    0.7038040518760681
+  ],
+  "normalisasi_mean": [
+    0.5825158953666687,
+    0.5810301899909973,
+    0.5513898730278015
+  ],
+  "normalisasi_std": [
+    0.16566626727581024,
+    0.16511644423007965,
+    0.165200337767601
+  ]
+}
