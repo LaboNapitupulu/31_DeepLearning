@@ -1,0 +1,10 @@
+README.md
+anggota/README.md
+models/README.md
+reports/hasil_komparasi.md
+results/baseline_starter/metrics.json
+results/baseline_starter/pred_val.npy
+sprint/08_integrasi/README.md
+sprint/08_integrasi/berkas.txt
+sprint/README.md
+sprint/URUTAN-PUSH.md
