@@ -37,19 +37,6 @@ mencatat prediksi benar pada keempat kelas. Transformer mendapat 17 dari 40
 prediksi benar dan melewatkan semua foto kelas 3. Dengan 40 citra validasi, satu
 prediksi benar tambahan mengubah akurasi sebesar 2,5 poin persentase.
 
-Dua puluh foto kurasi berbeda dari slot rancangan dalam jumlah orang.
-Sebanyak 18 foto di luar blok memakai kelompok alokasi. Distribusi kelas
-masih di luar toleransi ±10% karena stok foto kelas 2 dan 3 terbatas. Identitas partisipan
-foto tersebut belum dikonfirmasi dari lembar sesi. Run lama memakai 96 citra
-berlabel log, sehingga kedua run memakai sampel dan acuan evaluasi berbeda.
-
-## Rekomendasi
-
-Pemeriksaan kualitas label perlu diselesaikan sebelum memilih purwarupa.
-Setelah itu, bandingkan tiga seed, minimal dua ablation per jalur, dan ukur
-ukuran ONNX serta latensi pada laptop meja. Evaluasi G4 dilakukan setelah
-konfigurasi dipilih.
-
 ## Pembagian kerja
 
 | Anggota | NIM | Jalur | Peran |
